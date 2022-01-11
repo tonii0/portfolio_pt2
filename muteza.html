@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="locomotive-scroll/dist/locomotive-scroll.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio | Muteza</title>
+</head>
+<body data-scroll-container>
+    
+    <!-- <div class="load-container">
+        <div class="anim-bloc">
+          <div class="bloc-txt">
+            <h2>Busatta</h2>
+          </div>
+          <div class="loader_circle"></div>
+        </div>
+      </div> -->
+
+
+
+      <div class="return_bar">
+        <div class="container_return_logo">
+            <a href="index.html">
+                <img src="/assets/2 (2).jpg" alt="" srcset="">
+              </a>
+        </div>
+        <div class="container_return_btn">
+            <button><a href="index.html">Retour</a></button>
+        </div>
+      </div>
+
+      <div class="work" id="work" data-scroll-container>
+
+        <div class="contain_worker">
+          
+          <div class="work_video">
+            <div class="container_video" data-scroll data-scroll-direction="horizontal" data-scroll-speed="1">
+              <video height="600px" width="600px" autoplay loop>
+                  <source src="assets/muteza_preview.mp4" type="video/mp4">
+              </video>
+              <div class="work_title">
+                  <h1>Muteza</h1>
+              </div>
+            </div>
+          </div>
+            
+        </div>
+
+        <div class="work_desc">
+            <div class="work_circle_container" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-2">
+                <a href="https://tonii0.github.io/Muteza/" target="_blank">
+                    <div class="work_desc_btn">
+                        <span>View the site</span>
+                        <div class="arrow_hidden2">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="work_desc_container">
+                <div class="work_row2">
+                    <div class="work_img wimg0"></div>
+                </div>
+                <div class="work_row1">
+                    <div class="work_img wimg1"></div>
+                    <div class="work_img wimg2"></div>
+                </div>
+                <div class="work_row1">
+                    <div class="work_img wimg3"></div>
+                    <div class="work_img wimg4"></div>
+                </div>
+                <div class="work_row2">
+                    <div class="work_img wimg5"></div>
+                </div>
+            </div>
+      </div>
+
+      <!-- <script>
+    
+
+      
+      window.addEventListener('load', loader);
+
+        function loader(){
+        
+            const TLLOAD = gsap.timeline();
+        
+            TLLOAD
+            .to('.bloc-txt', {
+                height: 'auto', 
+                duration: 0.6, 
+                delay: 0.4, 
+                ease: 'power2.out'
+            },)
+        
+            .to('.bloc-txt h2', {
+                y: 0, 
+                ease: 'power2.out'
+            }, '-=0.6')
+        
+            .to('.loader_circle', {
+                x:0, 
+                duration: 0.6, 
+                ease: 'power2.out'
+            },'-=0.4')
+        
+            .to('.load-container', {
+                opacity: 0, 
+                duration: 0.8, 
+                delay: 0.7
+            })
+            .add(() => {
+                document.querySelector('.load-container').style.display = "none";
+            })
+            .from('.work_video', 1.8,{
+                delay: 1,
+                y: "-50%",
+                opacity: 0
+            },"-=.6")
+            .from(".work_title",1.5,{
+                opacity: 0,
+                stagger: {
+                    amount: .5
+                }
+            },"-=.6")
+            .from(".container_return_btn",1.5,{
+                opacity: 0,
+                y:"-100%",
+                stagger: 0.2,
+                ease: 'Expo.easeInOut',
+            },"-=.6")
+            .from(".container_return_logo",1.5,{
+                opacity: 0,
+                y:"-100%",
+                stagger: 0.2,
+                ease: 'Expo.easeInOut',
+            },"-=.6")
+            .from('.work_circle_container', {
+                duration:1,
+                y:"100%",
+                stagger: 0.2,
+                opacity:0,
+            })
+            
+            .from(".work_desc .work_img",1.5,{
+                opacity: 0,
+                stagger: {
+                    amount: .5
+                }
+            },"-=.6");
+        } 
+      
+
+        
+class HoverButton {
+  constructor(el) {
+    this.el = el;
+    this.hover = false;
+    this.calculatePosition();
+    this.attachEventsListener();
+  }
+  
+  attachEventsListener() {
+    window.addEventListener('mousemove', e => this.onMouseMove(e));
+    window.addEventListener('resize', e => this.calculatePosition(e));
+  }
+  
+  calculatePosition() {
+    gsap.set(this.el, {
+      x: 0,
+      y: 0,
+      scale: 1
+    });
+    const box = this.el.getBoundingClientRect();
+    this.x = box.left + (box.width * 0.5);
+    this.y = box.top + (box.height * 0.5);
+    this.width = box.width;
+    this.height = box.height;
+  }
+  
+  onMouseMove(e) {
+    let hover = false;
+    let hoverArea = (this.hover ? 0.7 : 0.5);
+    let x = e.clientX - this.x;
+    let y = e.clientY - this.y;
+    let distance = Math.sqrt( x*x + y*y );
+    if (distance < (this.width * hoverArea)) {
+       hover = true;
+        if (!this.hover) {
+          this.hover = true;
+        }
+        this.onHover(e.clientX, e.clientY);
+    }
+    
+    if(!hover && this.hover) {
+      this.onLeave();
+      this.hover = false;
+    }
+  }
+  
+  onHover(x, y) {
+    gsap.to(this.el,  {
+      x: (x - this.x) * 0.4,
+      y: (y - this.y) * 0.4,
+      scale: 1.15,
+      ease: 'power2.out',
+      duration: 0.4
+    });
+    this.el.style.zIndex = 10;
+  }
+  onLeave() {
+    gsap.to(this.el, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      ease: 'elastic.out(1.2, 0.4)',
+      duration: 0.7
+    });
+    this.el.style.zIndex = 1;
+  }
+}
+
+
+const btnOpen = document.querySelector('.menu_btn svg');
+new HoverButton(btnOpen);
+
+// const btnOpen = document.querySelector('.menu_btn a');
+
+
+const btnExit = document.querySelector('.overlay .exit');
+new HoverButton(btnExit);
+
+const btn3 = document.querySelector('.dark_mode_btn a');
+new HoverButton(btn3);
+
+
+const overlay = document.querySelector('.overlay')
+
+var tlMenu = gsap.timeline({defaults:{duration: 1, ease: Back.easeOut.config(2)}})
+
+tlMenu.paused(true);
+tlMenu.to(".overlay", {clipPath: 'circle(100%'})
+
+tlMenu.from('.overlay_container nav li a', {
+	duration:1.3,
+	y:"100%",
+	stagger: 0.2,
+	ease: 'Expo.easeInOut'
+});
+
+tlMenu.from('.social-links li', {
+	duration:1,
+	y:"-100%",
+	opacity:0,
+	stagger: 0.1,
+	ease: 'Expo.easeInOut'
+} , "-=0.5");
+
+tlMenu.from('.overlay .exit i', {
+	duration:1,
+	y:"-100%",
+	opacity:0,
+	stagger: 0.1,
+	ease: 'Expo.easeInOut'
+}, "-=0.8");
+
+btnOpen.addEventListener('click', () => {
+  tlMenu.play();
+})
+btnExit.addEventListener('click', () => {
+  tlMenu.reverse();
+})
+
+
+const elscroll = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  inertia: .6
+});
+        
+          
+      </script> -->
+
+      <script src="locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+    <!-- <script src="app.js"></script> -->
+
+</body>
+</html>
